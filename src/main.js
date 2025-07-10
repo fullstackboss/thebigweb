@@ -4,12 +4,21 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { initializeTheme } from './theme.js'
 
+// Importar páginas
+import Home from './pages/Home.vue'
+import About from './pages/About.vue'
+import Works from './pages/Works.vue'
+import Contact from './pages/Contact.vue'
+
 // Inicializar tema
 initializeTheme()
 
-// Definición de rutas inicial (solo Home por ahora)
+// Definición de rutas
 const routes = [
-  // Puedes agregar más rutas aquí
+  { path: '/', component: Home },
+  { path: '/acerca', component: About },
+  { path: '/trabajos', component: Works },
+  { path: '/contacto', component: Contact }
 ]
 
 const router = createRouter({
