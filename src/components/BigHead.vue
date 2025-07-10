@@ -1,57 +1,26 @@
 <template>
-  <header class="bg-white">
-    <nav class="container mx-auto px-4 py-4 border-b border-black">
+  <header class="bg-theme-card">
+    <nav class="container mx-auto px-4 py-4 border-b border-theme">
       <div class="flex justify-between items-center">
-        <div class="text-xl font-bold text-black">
+        <div class="text-xl font-bold text-theme-primary">
           TheBigWeb
         </div>
         
         <div class="flex items-center space-x-8">
-          <ul class="flex space-x-8">
-            <li>
-              <router-link 
-                to="/" 
-                class="text-black hover:text-gray-600 transition-colors"
-                active-class="font-semibold"
-              >
-                Inicio
-              </router-link>
-            </li>
-            <li>
-              <router-link 
-                to="/acerca" 
-                class="text-black hover:text-gray-600 transition-colors"
-                active-class="font-semibold"
-              >
-                Acerca de
-              </router-link>
-            </li>
-            <li>
-              <router-link 
-                to="/trabajos" 
-                class="text-black hover:text-gray-600 transition-colors"
-                active-class="font-semibold"
-              >
-                Trabajos
-              </router-link>
-            </li>
-            <li>
-              <router-link 
-                to="/contacto" 
-                class="text-black hover:text-gray-600 transition-colors"
-                active-class="font-semibold"
-              >
-                Contacto
-              </router-link>
-            </li>
+          <ul class="flex gap-3">
+            <MenuItem section="inicio" />
+            <MenuItem section="acerca" />
+            <MenuItem section="trabajos" />
+            <MenuItem section="contacto" />
           </ul>
           
           <button 
             @click="toggleTheme"
-            class="p-2 rounded-full transition hover:bg-gray-100"
+            class="p-2 rounded-full transition hover:bg-theme-hover"
+            style="background: var(--color-card); color: var(--color-primary);"
           >
-            <SunIcon v-if="currentTheme === 'light'" class="w-5 h-5 text-black" />
-            <MoonIcon v-else class="w-5 h-5 text-black" />
+            <SunIcon v-if="currentTheme === 'light'" class="w-5 h-5" />
+            <MoonIcon v-else class="w-5 h-5" />
           </button>
         </div>
       </div>
@@ -63,6 +32,7 @@
 import { ref, onMounted } from 'vue'
 import { getCurrentTheme, setTheme } from '../theme.js'
 import { SunIcon, MoonIcon } from '@heroicons/vue/24/outline'
+import MenuItem from './MenuItem.vue'
 
 const currentTheme = ref('light')
 

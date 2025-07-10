@@ -1,16 +1,16 @@
 <template>
-  <footer class="bg-white">
-    <div class="container mx-auto px-4 py-6 border-t border-black">
+  <footer class="bg-theme-card">
+    <div class="container mx-auto px-4 py-6 border-t border-theme">
       <div class="flex justify-between items-center">
-        <div class="text-black">
+        <div class="text-theme-primary">
           © 2024 TheBigWeb. Todos los derechos reservados.
         </div>
         
         <div class="flex space-x-4">
-          <a href="#" class="text-black hover:text-gray-600 transition-colors">
+          <a href="#" class="text-theme-primary hover:text-theme-secondary transition-colors">
             Política de Privacidad
           </a>
-          <a href="#" class="text-black hover:text-gray-600 transition-colors">
+          <a href="#" class="text-theme-primary hover:text-theme-secondary transition-colors">
             Términos de Servicio
           </a>
         </div>
