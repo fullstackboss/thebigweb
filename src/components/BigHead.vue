@@ -1,8 +1,8 @@
 <template>
-  <header class="bg-theme-card">
+  <header style="background: var(--color-background);">
     <nav class="container mx-auto px-4 py-4 border-b border-theme">
       <div class="flex justify-between items-center">
-        <div class="text-xl font-bold text-theme-primary">
+        <div class="text-xl font-bold text-theme-primary" style="color: var(--color-text);">
           TheBigWeb
         </div>
         
@@ -29,21 +29,30 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { getCurrentTheme, setTheme } from '../theme.js'
 import { SunIcon, MoonIcon } from '@heroicons/vue/24/outline'
 import MenuItem from './MenuItem.vue'
 
-const currentTheme = ref('light')
+const currentTheme = ref(getCurrentTheme())
+
+const updateTheme = () => {
+  currentTheme.value = getCurrentTheme()
+}
 
 const toggleTheme = () => {
   const newTheme = currentTheme.value === 'light' ? 'dark' : 'light'
-  currentTheme.value = newTheme
   setTheme(newTheme)
+  updateTheme()
 }
 
 onMounted(() => {
-  currentTheme.value = getCurrentTheme()
+  updateTheme()
+  window.addEventListener('storage', updateTheme)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('storage', updateTheme)
 })
 </script>
 

@@ -3,9 +3,10 @@
     <router-link 
       :to="routePath" 
       class="menu-btn"
-      active-class="menu-btn-active"
+      :class="{ 'menu-btn-active': isActive }"
+      v-slot="{ isActive }"
     >
-      {{ displayName }}
+      <span :style="isActive ? activeStyle : inactiveStyle">{{ displayName }}</span>
     </router-link>
   </li>
 </template>
@@ -40,26 +41,32 @@ const displayName = computed(() => {
   }
   return names[props.section]
 })
+
+const activeStyle = {
+  border: '0px solid var(--color-border)',
+  borderRadius: '9999px',
+  padding: '7px 20px',
+  color: 'var(--color-card)',
+  background: 'var(--color-primary)',
+  fontWeight: 400,
+  transition: 'border 0.2s, color 0.2s, background 0.2s',
+}
+
+const inactiveStyle = {
+  border: 'none',
+  padding: '7px 20px',
+  color: 'var(--color-primary)',
+  background: 'transparent',
+  fontWeight: 400,
+  transition: 'color 0.2s',
+}
 </script>
 
 <style scoped>
 .menu-btn {
   display: inline-block;
-  border-radius: 9999px;
-  padding: 7px 20px;
-  transition: background 0.2s, color 0.2s;
   text-align: center;
   font-size: 16px;
-  font-weight: 400;
-  background: var(--color-primary);
-  color: var(--color-card);
-}
-
-.menu-btn:hover {
-  background: var(--color-secondary);
-}
-
-.menu-btn-active {
-  font-weight: 600;
+  background: transparent;
 }
 </style> 

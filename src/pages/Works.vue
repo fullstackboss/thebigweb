@@ -1,24 +1,23 @@
 <template>
-  <div class="min-h-screen bg-theme-surface p-8">
+  <div class="min-h-screen p-8" style="background: var(--color-background);">
     <div class="container mx-auto max-w-6xl">
-      <h1 class="text-4xl font-bold text-theme-primary mb-8">Trabajos</h1>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <h1 style="color: var(--color-primary); font-size: 2.25rem; font-weight: bold; margin-bottom: 2rem;">Trabajos</h1>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
         <div 
           v-for="project in projects" 
           :key="project.id"
-          class="bg-theme-card p-6 rounded-lg shadow-lg border border-theme hover:shadow-xl transition-shadow"
+          style="background: var(--color-card); padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 2px 8px var(--color-shadow); border: 1px solid var(--color-border); transition: box-shadow 0.2s;"
         >
-          <div class="w-full h-48 bg-theme-surface rounded-lg mb-4 flex items-center justify-center">
-            <span class="text-theme-muted text-lg">{{ project.name }}</span>
+          <div style="width: 100%; height: 12rem; background: var(--color-surface); border-radius: 0.5rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+            <span style="color: var(--color-text-muted); font-size: 1.125rem;">{{ project.name }}</span>
           </div>
-          <h3 class="text-xl font-semibold text-theme-primary mb-2">{{ project.name }}</h3>
-          <p class="text-theme-secondary mb-4">{{ project.description }}</p>
-          <div class="flex flex-wrap gap-2">
+          <h3 style="color: var(--color-primary); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">{{ project.name }}</h3>
+          <p style="color: var(--color-secondary); margin-bottom: 1rem;">{{ project.description }}</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
             <span 
               v-for="tech in project.technologies" 
               :key="tech"
-              class="px-3 py-1 bg-theme-surface text-theme-secondary text-sm rounded-full"
+              style="padding: 0.25rem 0.75rem; background: var(--color-surface); color: var(--color-secondary); font-size: 0.875rem; border-radius: 9999px;"
             >
               {{ tech }}
             </span>

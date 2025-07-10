@@ -1,7 +1,7 @@
 <template>
-  <footer class="bg-theme-card">
+  <footer style="background: var(--color-background);">
     <div class="container mx-auto px-4 py-6 border-t border-theme">
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center" style="color: var(--color-text);">
         <div class="text-theme-primary">
           © 2024 TheBigWeb. Todos los derechos reservados.
         </div>
