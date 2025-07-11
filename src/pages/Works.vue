@@ -50,21 +50,21 @@ const projects = ref([
   },
   {
     id: 4,
-    name: 'Task Manager',
-    description: 'Gestor de tareas con drag & drop, notificaciones y colaboración en equipo.',
-    technologies: ['Vue 3', 'Vuex', 'Express']
+    name: 'E-commerce Platform',
+    description: 'Plataforma completa de comercio electrónico con carrito de compras y sistema de pagos.',
+    technologies: ['Vue 3', 'Node.js', 'MongoDB']
   },
   {
     id: 5,
-    name: 'Portfolio Website',
-    description: 'Sitio web de portafolio personal con animaciones y diseño responsivo.',
-    technologies: ['Vue 3', 'GSAP', 'Tailwind']
+    name: 'Dashboard Analytics',
+    description: 'Panel de control con gráficos interactivos y análisis de datos en tiempo real.',
+    technologies: ['Vue 3', 'Chart.js', 'Firebase']
   },
   {
     id: 6,
-    name: 'Weather App',
-    description: 'Aplicación del clima con pronósticos detallados y ubicación automática.',
-    technologies: ['Vue 3', 'OpenWeather API', 'Geolocation']
+    name: 'Social Media App',
+    description: 'Aplicación de redes sociales con chat en tiempo real y compartir contenido.',
+    technologies: ['Vue 3', 'Socket.io', 'PostgreSQL']
   }
 ])
 </script> 
