@@ -18,8 +18,8 @@
         </div>
         <div>
           <img
-            src="https://placehold.co/500x300"
-            alt="Ilustración de un proceso de diseño"
+            :src="currentTheme === 'dark' ? fotoDark : fotoLight"
+            alt="Mi Foto"
             class="w-full h-auto rounded-lg"
           />
         </div>
@@ -29,5 +29,22 @@
 </template>
 
 <script setup>
-// Página de inicio simplificada
+import { ref, onMounted, onUnmounted } from 'vue'
+import { getCurrentTheme } from '../theme.js'
+import fotoLight from '../assets/fotos/foto-light.jpg'
+import fotoDark from '../assets/fotos/foto-dark.jpg'
+
+const currentTheme = ref(getCurrentTheme())
+let observer
+
+onMounted(() => {
+  observer = new MutationObserver(() => {
+    currentTheme.value = getCurrentTheme()
+  })
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+})
+
+onUnmounted(() => {
+  if (observer) observer.disconnect()
+})
 </script>
