@@ -53,9 +53,9 @@
         <div 
           v-show="isMenuOpen" 
           class="lg:hidden absolute z-50 bg-background border-b border-theme menu-mobile"
-          style="background: var(--color-background); border-color: var(--color-border); top: calc(100% + 1px); left: 0; right: 0;"
+          style="background: var(--color-background); border-color: var(--color-border); top: calc(100% + 1px); left: 0; right: 0; height: 40vh;"
         >
-          <ul class="flex flex-col items-center py-6" style="gap: 23px;">
+          <ul class="flex flex-col items-center justify-center h-full" style="gap: 30px;">
             <MenuItem section="inicio" @click="closeMenu" />
             <MenuItem section="acerca" @click="closeMenu" />
             <MenuItem section="trabajos" @click="closeMenu" />
