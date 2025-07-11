@@ -5,6 +5,7 @@
       class="menu-btn"
       :class="{ 'menu-btn-active': isActive }"
       v-slot="{ isActive }"
+      @click="$emit('click')"
     >
       <span :style="isActive ? activeStyle : inactiveStyle">{{ displayName }}</span>
     </router-link>
@@ -21,6 +22,9 @@ const props = defineProps({
     validator: (value) => ['inicio', 'acerca', 'trabajos', 'contacto'].includes(value)
   }
 })
+
+// Definir eventos que puede emitir el componente
+defineEmits(['click'])
 
 const routePath = computed(() => {
   const routes = {
