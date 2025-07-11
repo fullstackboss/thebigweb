@@ -1,8 +1,8 @@
 <template>
   <header style="background: var(--color-background); position: fixed; top: 0; left: 0; width: 100%; z-index: 50;">
-    <nav class="container mx-auto px-4 py-4 border-b border-theme relative">
+    <nav class="container mx-auto px-4 py-4 border-b border-theme relative" style="border-color:var(--color-elborder)">
       <div class="flex justify-between items-center">
-        <div class="text-2xl font-bold text-theme-primary" style="color: var(--color-text);">
+        <div class="text-2xl font-bold text-theme-primary" style="color: var(--color-accent);">
           TheBigWeb
         </div>
         <!-- Botón hamburguesa para tablet y móvil -->
@@ -26,7 +26,7 @@
           </button>
         </div>
         <!-- Menú desktop (visible en md y superior) -->
-        <div class="hidden md:flex items-center space-x-8">
+        <div class="hidden md:flex items-center space-x-2">
           <ul class="flex gap-3">
             <MenuItem section="inicio" />
             <MenuItem section="acerca" />

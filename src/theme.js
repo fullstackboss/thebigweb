@@ -3,15 +3,21 @@
 
 export const theme = {
   light: {
-    primary: '#000000',
-    secondary: '#333333',
-    accent: '#666666',
-    background: '#ffffff',
+    primary: '#1E293B',  // Texto Principal
+    secondary: '#FF0000',
+    accent: '#0F172A', // color resalta para texto
+
+    btnaccent: '#030617', // color resalta para boton
+    btnaccentext: '#ffffff', // color resalta texto para boton
+
+    elborder: '#0F172A', // FONDO General
+
+
+    background: '#ffffff', // FONDO General
     surface: '#f8f8f8',
     card: '#ffffff',
-    text: '#000000',
+    text: '#516072', // texto normal
     textSecondary: '#333333',
-    textMuted: '#666666',
     border: '#e0e0e0',
     borderLight: '#f0f0f0',
     hover: '#f5f5f5',
@@ -25,15 +31,20 @@ export const theme = {
     shadowDark: 'rgba(0, 0, 0, 0.2)',
   },
   dark: {
-    primary: '#ffffff',
-    secondary: '#cccccc',
-    accent: '#999999',
-    background: '#000000', // rojo para comprobar
+    primary: '#A5B5C7',   // Texto Principal
+    secondary: '#FF0000',
+    accent: '#FFFFFF', // color resalta para texto
+
+    btnaccent: '#324154', // color resalta para boton
+    btnaccentext: '#ffffff', // color resalta texto para boton
+
+    elborder: '#324154', // FONDO General
+    
+    background: '#030617', // FONDO General
     surface: '#111111',
-    card: '#1a1a1a',
-    text: '#ffffff',
+    card: '#0F172A',
+    text: '#A5B5C7',  // texto normal
     textSecondary: '#cccccc',
-    textMuted: '#999999',
     border: '#333333',
     borderLight: '#222222',
     hover: '#1a1a1a',
@@ -46,6 +57,9 @@ export const theme = {
     shadow: 'rgba(255, 255, 255, 0.1)',
     shadowDark: 'rgba(255, 255, 255, 0.2)',
   }
+
+
+  
 }
 
 function setCSSVariables(themeObj) {
