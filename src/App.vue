@@ -7,7 +7,9 @@ import BigFoot from './components/BigFoot.vue'
   <div class="min-h-screen flex flex-col">
     <BigHead />
     <main class="flex-1">
-      <router-view />
+      <div class="container mx-auto px-4">
+        <router-view />
+      </div>
     </main>
     <BigFoot />
   </div>

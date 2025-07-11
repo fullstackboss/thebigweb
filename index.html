@@ -4,7 +4,30 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Vite + Vue</title>
+    <script>
+      // Aplicar tema inmediatamente para evitar flash
+      (function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const theme = {
+          light: {
+            background: '#ffffff',
+            text: '#000000'
+          },
+          dark: {
+            background: '#000000',
+            text: '#ffffff'
+          }
+        };
+        
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.documentElement.style.backgroundColor = theme[savedTheme].background;
+        document.documentElement.style.color = theme[savedTheme].text;
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>
