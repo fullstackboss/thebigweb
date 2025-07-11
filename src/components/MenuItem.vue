@@ -50,9 +50,9 @@ const activeStyle = {
   border: '0px solid var(--color-border)',
   borderRadius: '9999px',
   padding: '7px 20px',
-  color: 'var(--color-card)',
-  background: 'var(--color-primary)',
-  fontWeight: 400,
+  color: 'var(--color-btnaccentext)',
+  background: 'var(--color-btnaccent)',
+  fontWeight: 300,
   transition: 'border 0.2s, color 0.2s, background 0.2s',
 }
 
@@ -61,7 +61,7 @@ const inactiveStyle = {
   padding: '7px 20px',
   color: 'var(--color-primary)',
   background: 'transparent',
-  fontWeight: 400,
+  fontWeight: 300,
   transition: 'color 0.2s',
 }
 </script>
@@ -70,7 +70,7 @@ const inactiveStyle = {
 .menu-btn {
   display: inline-block;
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   background: transparent;
 }
 </style> 

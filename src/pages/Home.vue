@@ -5,23 +5,14 @@
         <div class="text-center lg:text-left">
           <div class="flex items-center justify-center lg:justify-start mb-2">
             <span class="inline-block mr-4" style="width: 70px; height: 1px; background: var(--color-primary);"></span>
-            <p
-              class="text-sm font-medium uppercase tracking-wider m-0"
-              style="color: var(--color-secondary);"
-            >
+            <p class="tit-normal m-0">
               UX Designer and Motion Designer
             </p>
           </div>
-          <h1
-            class="text-4xl lg:text-7xl md:text-5xl font-bold tracking-tighter mt-2"
-            style="color: var(--color-primary);"
-          >
+          <h1 class="tit-grande mt-2">
             Visual Designer
           </h1>
-          <p
-            class="mt-6 text-sm md:text-lg max-w-lg mx-auto lg:mx-0 font-light"
-            style="color: var(--color-text-muted);"
-          >
+          <p class="mt-6 text-parrafo max-w-lg mx-auto lg:mx-0">
             Estoy ayudando a empresas emergentes y propietarios de negocios a hacer una declaración visual a través de un diseño y desarrollo web impecable.
           </p>
         </div>
