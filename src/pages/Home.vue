@@ -13,13 +13,13 @@
             </p>
           </div>
           <h1
-            class="text-5xl md:text-7xl font-bold tracking-tighter mt-2"
+            class="text-4xl lg:text-7xl md:text-5xl font-bold tracking-tighter mt-2"
             style="color: var(--color-primary);"
           >
             Visual Designer
           </h1>
           <p
-            class="mt-6 text-lg max-w-lg mx-auto lg:mx-0"
+            class="mt-6 text-sm md:text-lg max-w-lg mx-auto lg:mx-0 font-light"
             style="color: var(--color-text-muted);"
           >
             Estoy ayudando a empresas emergentes y propietarios de negocios a hacer una declaración visual a través de un diseño y desarrollo web impecable.

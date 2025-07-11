@@ -2,7 +2,7 @@
   <header style="background: var(--color-background); position: fixed; top: 0; left: 0; width: 100%; z-index: 50;">
     <nav class="container mx-auto px-4 py-4 border-b border-theme relative">
       <div class="flex justify-between items-center">
-        <div class="text-xl font-bold text-theme-primary" style="color: var(--color-text);">
+        <div class="text-2xl font-bold text-theme-primary" style="color: var(--color-text);">
           TheBigWeb
         </div>
         <!-- Botón hamburguesa para tablet y móvil -->
