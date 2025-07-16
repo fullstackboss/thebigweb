@@ -4,7 +4,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="text-center lg:text-left">
           <div class="flex items-center justify-center lg:justify-start mb-2">
-            <span class="inline-block mr-4" style="width: 70px; height: 1px; background: var(--color-primary);"></span>
+            <span class="inline-block mr-4" style="width: 50px; height: 1px; background: var(--color-primary);"></span>
             <p class="tit-normal m-0">
               UX Designer and Motion Designer
             </p>

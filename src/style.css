@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   background-color: var(--color-background);
   color: var(--color-text);
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -20,34 +20,35 @@ body {
 
 /* Utilidades de tipografía */
 .tit-grande {
-  @apply text-4xl md:text-5xl lg:text-7xl font-bold lg:mb-8 mb-4 mb-6 md:my-0 tracking-normal;
-  color: var(--color-accent);
+  @apply font-poppins text-4xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter mt-0 mb-4 md:mb-3;
+  color: var(--color-primary);
 }
 .tit-mediano {
-  @apply text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight my-3 md:my-5;
+  @apply font-poppins text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight my-3 md:my-5;
   color: var(--color-primary);
 }
 .tit-normal {
-  @apply text-sm md:text-xl lg:text-xl font-normal my-0 md:my-2;
+  @apply font-poppins text-lg sm:text-xl md:text-2xl lg:text-xl font-semibold my-2 md:mb-2;
   color: var(--color-primary);
 }
 .tit-small {
-  @apply text-base sm:text-lg md:text-xl font-semibold my-1 md:my-2;
+  @apply font-poppins text-base sm:text-lg md:text-xl font-semibold my-1 md:my-2;
   color: var(--color-primary);
 }
+
 .text-grande {
-  @apply text-lg sm:text-xl md:text-2xl font-light my-3 md:my-4;
-  color: var(--color-primary);
+  @apply font-inter text-lg sm:text-xl md:text-2xl font-light my-3 md:my-4;
+  color: var(--color-secondary);
 }
 .text-mediano {
-  @apply text-base sm:text-lg md:text-xl font-light my-2 md:my-3;
-  color: var(--color-text);
+  @apply font-inter text-base sm:text-lg md:text-xl font-light my-2 md:my-3;
+  color: var(--color-secondary);
 }
 .text-parrafo {
-  @apply text-sm sm:text-base md:text-lg font-light my-2 md:my-3;
-  color: var(--color-text);
+  @apply font-inter text-sm sm:text-base md:text-lg font-light my-2 md:my-3;
+  color: var(--color-text-muted);
 }
 .text-small {
-  @apply text-xs sm:text-sm font-light my-1;
-  color: var(--color-primary);
+  @apply font-inter text-xs sm:text-sm font-light my-1;
+  color: var(--color-text-muted);
 }
