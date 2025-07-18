@@ -1,10 +1,12 @@
 <template>
   <section class="py-8 flex flex-col items-center justify-center" style="background: var(--color-background);">
+
+
     <div class="container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="text-center lg:text-left order-2 lg:order-1">
-          <div class="flex items-center justify-center lg:justify-start mb-2">
-            <span class="inline-block mr-4" style="width: 50px; height: 1px; background: var(--color-primary);"></span>
+      <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 gap-2 items-center">
+        <div class="text-center lg:text-left order-2 lg:order-1 ">
+          <div class="flex items-center justify-center lg:justify-start mb-2 ">
+            <span class="inline-block mr-4" style="width: 40px; height: 1px; background: var(--color-primary);"></span>
             <p class="tit-normal m-0">
               UX Designer and Motion Designer
             </p>
@@ -13,61 +15,63 @@
             Visual Designer
           </h1>
           <p class="mt-6 text-parrafo max-w-lg mx-auto lg:mx-0">
-            Estoy ayudando a empresas emergentes y propietarios de negocios a hacer una declaración visual a través de un diseño y desarrollo web impecable.
+            Estoy ayudando a empresas emergentes y propietarios de negocios a hacer una declaración visual a través de
+            un diseño y desarrollo web impecable.
           </p>
         </div>
         <div class="order-1 lg:order-2">
-           <!-- Animación Rive -->
-          <div class="w-full flex justify-center items-center py-8">
-            <canvas ref="riveCanvas" width="400" height="400" class="max-w-full h-auto" style="width: 460px; height: 380px;"></canvas>
+          <!-- Animación Rive -->
+          <div class="w-full flex justify-center items-center py-0 lg:py-8 bg-blue-300">
+            <canvas ref="riveCanvas" width="400" height="400" class="max-w-full h-auto" style="height: 340px;" ></canvas>
           </div>
         </div>
       </div>
     </div>
 
 
-<!--   <div>
-          <img
-            :src="currentTheme === 'dark' ? fotoDark : fotoLight"
-            alt="Mi Foto"
-            class="w-full h-auto rounded-lg"
-          />
-        </div> -->
 
-
-    
   </section>
 
-  <!-- Tarjeta tipo hero, responsiva, con imagen a la izquierda y contenido a la derecha -->
+  <!-- SOY OMAR -->
   <div class="container my-12">
-    <div class="container border rounded-md flex lg:flex-row md:flex-col flex-col"> 
-  <div class="lg:w-4/12 w-full flex justify-center">
-    <div class="relative -top-[60px]">
-      <img class="rounded-xl max-w-sm" :src="currentTheme === 'dark' ? fotoDark : fotoLight" alt="">
-    </div>
-  </div>
-  <div class="lg:w-8/12 w-full flex justify-center items-center p-10">
-    <div class="">
-      <h1 class="font-bold text-5xl mb-4">Soy Omar Tejada</h1>
-        <p class="">
-          Rápido y transparente, el camino hacia la creación de un sitio web que represente a su marca de la mejor manera está a solo 4 semanas de distancia. Siguiendo la meso de todo el proceso.
-        </p>
-    <div>
-      <div class="flex lg:flex-row md:flex-row flex-col justify-between mt-8 gap-4">
-          <div class="flex justify-center">
-            <button class="bg-black text-white font-inter rounded-full px-8 py-3 text-lg font-normal transition hover:bg-gray-800 focus:outline-none w-full">Contáctame</button>
-          </div>
-          <div class="flex justify-center gap-4">
-            <button class="bg-white text-black border font-inter rounded-full px-8 py-3 text-lg font-normal transition hover:bg-gray-800 hover:text-white focus:outline-none w-full">Contáctame</button>
-            <button class="bg-white text-black border font-inter rounded-full px-8 py-3 text-lg font-normal transition hover:bg-gray-800 hover:text-white focus:outline-none w-full">Contáctame</button>
-          </div>
+    <div class="border border-black rounded-xl flex lg:flex-row md:flex-col flex-col">
+      <div class="lg:w-4/12 w-full flex justify-center">
+        <div class="relative -top-[40px] lg:-top-[40px] md:-top-[50px] p-5 lg:p-0 rounded-xl">
+          <img class="rounded-xl object-contain w-96 xl:w-80 lg:w-64 md:w-80"
+            :src="currentTheme === 'dark' ? fotoDark : fotoLight" alt="">
         </div>
+      </div>
+      <div class="lg:w-8/12 w-full flex flex-col justify-center px-6 lg:px-10 py-0 md:py-10">
+      <h1 class="font-bold text-5xl mb-4">Soy Omar Tejada</h1>
+      <p class="text-lg">
+        Rápido y transparente, el camino hacia la creación de un sitio web que represente a su marca de la mejor
+        manera está a solo 4 semanas de distancia. Siguiendo la mesa de todo el proceso.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row justify-between gap-4">
+        <div class="flex justify-center md:w-auto">
+          <button
+            class="bg-black text-white font-inter rounded-full px-8 py-3 text-lg font-normal transition hover:bg-gray-800 focus:outline-none w-full md:w-fit"
+          >
+            Contáctame
+          </button>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 md:w-auto">
+          <button
+            class="bg-white text-black border border-black font-inter rounded-full px-8 py-3 text-lg font-normal transition hover:bg-gray-800 hover:text-white focus:outline-none w-full sm:w-auto"
+          >
+            Facebook
+          </button>
+          <button
+            class="bg-white text-black border border-black font-inter rounded-full px-8 py-3 text-lg font-normal transition hover:bg-gray-800 hover:text-white focus:outline-none w-full sm:w-auto"
+          >
+            Linkedin
+          </button>
+        </div>
+      </div>
     </div>
     </div>
   </div>
-</div>
-  </div>
-  
+
 
 
 
