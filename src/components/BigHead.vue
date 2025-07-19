@@ -1,8 +1,8 @@
 <template>
   <header style="background: var(--color-background); position: fixed; top: 0; left: 0; width: 100%; z-index: 50;">
-    <nav class="container mx-auto px-4 py-4 border-b border-theme relative" style="border-color:var(--color-elborder)">
+    <nav class="container mx-auto px-4 py-4 border-b border-theme relative" style="border-color:var(--color-border)">
       <div class="flex justify-between items-center">
-        <div class="text-2xl font-bold text-theme-primary" style="color: var(--color-accent);">
+        <div class="text-2xl font-bold text-theme-primary" style="color: var(--color-textoresalta);">
           TheBigWeb
         </div>
         <!-- Botón hamburguesa para tablet y móvil -->
@@ -10,7 +10,7 @@
           <button 
             @click="toggleTheme"
             class="p-2 rounded-full transition hover:bg-theme-hover"
-            style="background: var(--color-card); color: var(--color-primary);"
+            style="background: var(--color-suave); color: var(--color-primary);"
           >
             <SunIcon v-if="currentTheme === 'light'" class="w-5 h-5" />
             <MoonIcon v-else class="w-5 h-5" />
@@ -18,7 +18,7 @@
           <button 
             @click="toggleMenu"
             class="p-2 rounded-lg transition hover:bg-theme-hover"
-            style="background: var(--color-card); color: var(--color-primary);"
+            style="background: var(--color-neutro); color: var(--color-primary);"
             aria-label="Toggle menu"
           >
             <Bars3Icon v-if="!isMenuOpen" class="w-6 h-6" />
@@ -36,7 +36,7 @@
           <button 
             @click="toggleTheme"
             class="p-2 rounded-full transition hover:bg-theme-hover"
-            style="background: var(--color-card); color: var(--color-primary);"
+            style="background: var(--color-suave); color: var(--color-primary);"
           >
             <SunIcon v-if="currentTheme === 'light'" class="w-5 h-5" />
             <MoonIcon v-else class="w-5 h-5" />
