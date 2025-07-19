@@ -14,14 +14,14 @@
           <h1 class="tit-grande mt-2">
             Visual Designer
           </h1>
-          <p class="mt-6 text-parrafo max-w-lg mx-auto lg:mx-0">
+          <p class="mt-6 tit-normal mx-auto lg:mx-0">
             Estoy ayudando a empresas emergentes y propietarios de negocios a hacer una declaración visual a través de
             un diseño y desarrollo web impecable.
           </p>
         </div>
         <div class="order-1 lg:order-2">
           <!-- Animación Rive -->
-          <div class="w-full flex justify-center items-center py-0 lg:py-8 bg-blue-300">
+          <div class="w-full flex justify-center items-center py-0 lg:py-8 bg-blue-0">
             <canvas ref="riveCanvas" width="400" height="400" class="max-w-full h-auto" style="height: 340px;" ></canvas>
           </div>
         </div>
@@ -34,38 +34,58 @@
 
   <!-- SOY OMAR -->
   <div class="container my-12">
-    <div class="border border-black rounded-xl flex lg:flex-row md:flex-col flex-col">
+    <div class="border  rounded-xl flex lg:flex-row md:flex-col flex-col" style="border-color: var(--color-border);">
       <div class="lg:w-4/12 w-full flex justify-center">
         <div class="relative -top-[40px] lg:-top-[40px] md:-top-[50px] p-5 lg:p-0 rounded-xl">
-          <img class="rounded-xl object-contain w-96 xl:w-80 lg:w-64 md:w-80"
+          <img class="rounded-xl object-contain w-72 xl:w-80 lg:w-64 md:w-80"
             :src="currentTheme === 'dark' ? fotoDark : fotoLight" alt="">
         </div>
       </div>
       <div class="lg:w-8/12 w-full flex flex-col justify-center px-6 lg:px-10 py-0 md:py-10">
-      <h1 class="font-bold text-5xl mb-4">Soy Omar Tejada</h1>
-      <p class="text-lg">
+      <h1 class="tit-mediano">Soy Omar Tejada</h1>
+      <p class="text-parrafo">
         Rápido y transparente, el camino hacia la creación de un sitio web que represente a su marca de la mejor
         manera está a solo 4 semanas de distancia. Siguiendo la mesa de todo el proceso.
       </p>
-      <div class="mt-8 flex flex-col sm:flex-row justify-between gap-4">
-        <div class="flex justify-center md:w-auto">
-          <button
-            class="bg-black text-white font-inter rounded-full px-8 py-3 text-lg font-normal transition hover:bg-gray-800 focus:outline-none w-full md:w-fit"
-          >
-            Contáctame
-          </button>
+      <div class="mt-8 mb-6 md:mb-0 flex flex-col sm:flex-row justify-between gap-4">
+        <div class="flex flex-col justify-center md:w-auto">
+          <Button 
+            text="Contáctame"
+            url="#"
+            backgroundColor="var(--color-antineutro)"
+            backgroundColorHover="var(--color-mediooscuro)"
+            textColor="var(--color-neutro)"
+            textColorHover="var(--color-claro)"
+            rounded="full"
+            minWidth="fit-content"
+            icon="arrow-up-circle"
+          />
         </div>
         <div class="flex flex-col sm:flex-row justify-center gap-4 md:w-auto">
-          <button
-            class="bg-white text-black border border-black font-inter rounded-full px-8 py-3 text-lg font-normal transition hover:bg-gray-800 hover:text-white focus:outline-none w-full sm:w-auto"
-          >
-            Facebook
-          </button>
-          <button
-            class="bg-white text-black border border-black font-inter rounded-full px-8 py-3 text-lg font-normal transition hover:bg-gray-800 hover:text-white focus:outline-none w-full sm:w-auto"
-          >
-            Linkedin
-          </button>
+          <Button
+            text="Facebook"
+            url="#"
+            backgroundColor="var(--color-background)"
+            backgroundColorHover="var(--color-oscuro)"
+            textColor="var(--color-antineutro)"
+            textColorHover="white"
+            rounded="full"
+            border="1px solid var(--color-mediooscuro)"
+            minWidth="fit-content"
+            icon="ArrowUpRightIcon"
+          />
+          <Button
+            text="LinkedIn"
+            url="#"
+            backgroundColor="var(--color-background)"
+            backgroundColorHover="var(--color-oscuro)"
+            textColor="var(--color-antineutro)"
+            textColorHover="white"
+            rounded="full"
+            border="1px solid var(--color-mediooscuro)"
+            minWidth="fit-content"
+            icon="ArrowUpRightIcon"
+          />
         </div>
       </div>
     </div>
@@ -83,6 +103,7 @@ import { onMounted, onUnmounted, ref, nextTick, watch } from 'vue'
 import { getCurrentTheme } from '../theme.js'
 import fotoLight from '../assets/fotos/foto-light.jpg'
 import fotoDark from '../assets/fotos/foto-dark.jpg'
+import Button from '../components/Button.vue'
 
 const currentTheme = ref(getCurrentTheme())
 let observer

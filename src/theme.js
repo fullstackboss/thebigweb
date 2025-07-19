@@ -3,63 +3,43 @@
 
 export const theme = {
   light: {
-    primary: '#1E293B',  // Texto Principal
-    secondary: '#FF0000',
-    accent: '#0F172A', // color resalta para texto
+    primary:'#030617', //level1
+    oscuro:'#1E293B',//level2
+    mediooscuro:'#324154',//level3
+    medio:'#516072',//level4
+    medioclaro:'#A5B5C7',//level5
+    claro:'#E4EAF2',//level6
+    suave:'#F4F7FB',//level6
 
-    btnaccent: '#030617', // color resalta para boton
-    btnaccentext: '#ffffff', // color resalta texto para boton
-
-    elborder: '#0F172A', // FONDO General
-
-
-    background: '#ffffff', // FONDO General
-    surface: '#f8f8f8',
-    card: '#ffffff',
-    text: '#516072', // texto normal
-    textSecondary: '#333333',
-    border: '#e0e0e0',
-    borderLight: '#f0f0f0',
-    hover: '#f5f5f5',
-    active: '#e8e8e8',
-    disabled: '#cccccc',
-    success: '#000000',
-    error: '#000000',
-    warning: '#333333',
-    info: '#666666',
-    shadow: 'rgba(0, 0, 0, 0.1)',
-    shadowDark: 'rgba(0, 0, 0, 0.2)',
+    background:'#FFFFFF',
+    textooscuro:'#030617',
+    textoresalta:'#030617',
+    textomedio:'#516072',
+    border:'#030617',
+    shadow:'#516072',
+    neutro:'#FFFFFF',
+    antineutro:'#000000',
+    test:'#f00', 
   },
   dark: {
-    primary: '#A5B5C7',   // Texto Principal
-    secondary: '#FF0000',
-    accent: '#FFFFFF', // color resalta para texto
+    primary:'#A5B5C7',//level1
+    oscuro:'#1E293B',//level2
+    mediooscuro:'#324154',//level3
+    medio:'#516072',//level4
+    medioclaro:'#A5B5C7',//level5
+    claro:'#E4EAF2',//level6
+    suave:'#1E293B',//level6
 
-    btnaccent: '#324154', // color resalta para boton
-    btnaccentext: '#ffffff', // color resalta texto para boton
-
-    elborder: '#324154', // FONDO General
-    
-    background: '#030617', // FONDO General
-    surface: '#111111',
-    card: '#0F172A',
-    text: '#A5B5C7',  // texto normal
-    textSecondary: '#cccccc',
-    border: '#333333',
-    borderLight: '#222222',
-    hover: '#1a1a1a',
-    active: '#222222',
-    disabled: '#444444',
-    success: '#ffffff',
-    error: '#ffffff',
-    warning: '#cccccc',
-    info: '#999999',
-    shadow: 'rgba(255, 255, 255, 0.1)',
-    shadowDark: 'rgba(255, 255, 255, 0.2)',
+    background:'#030617',
+    textooscuro:'#E4EAF2',
+    textoresalta:'#FFFFFF',
+    textomedio:'#A5B5C7',
+    border:'#324154',
+    shadow:'#516072', 
+    neutro:'#000000',
+    antineutro:'#FFFFFF',
+    test:'#00f', 
   }
-
-
-  
 }
 
 function setCSSVariables(themeObj) {

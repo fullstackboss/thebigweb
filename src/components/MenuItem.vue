@@ -50,8 +50,8 @@ const activeStyle = {
   border: '0px solid var(--color-border)',
   borderRadius: '9999px',
   padding: '7px 20px',
-  color: 'var(--color-btnaccentext)',
-  background: 'var(--color-btnaccent)',
+  color: 'var(--color-neutro)',
+  background: 'var(--color-textoresalta)',
   fontWeight: 300,
   transition: 'border 0.2s, color 0.2s, background 0.2s',
 }

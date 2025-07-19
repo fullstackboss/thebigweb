@@ -10,7 +10,7 @@ html {
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background-color: var(--color-background);
-  color: var(--color-text);
+  color: var(--color-textomedio);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -19,36 +19,36 @@ body {
 }
 
 /* Utilidades de tipografía */
+
+
+/* SECCION */
 .tit-grande {
-  @apply font-poppins text-4xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter mt-0 mb-4 md:mb-3;
-  color: var(--color-primary);
+  @apply font-poppins text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-normal mt-0 mb-4 md:mb-3;
+  color: var(--color-textoresalta);
 }
+/* TIT BLOQUE */
 .tit-mediano {
-  @apply font-poppins text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight my-3 md:my-5;
-  color: var(--color-primary);
+  @apply font-poppins text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight my-3 md:my-5;
+  color: var(--color-textoresalta);
 }
+/* PRE SECCION */
 .tit-normal {
-  @apply font-poppins text-lg sm:text-xl md:text-2xl lg:text-xl font-semibold my-2 md:mb-2;
-  color: var(--color-primary);
+  @apply font-poppins text-lg sm:text-xl md:text-2xl lg:text-lg font-light my-2 md:mb-2;
+  color: var(--color-textomedio);
 }
-.tit-small {
-  @apply font-poppins text-base sm:text-lg md:text-xl font-semibold my-1 md:my-2;
-  color: var(--color-primary);
-}
+
 
 .text-grande {
   @apply font-inter text-lg sm:text-xl md:text-2xl font-light my-3 md:my-4;
-  color: var(--color-secondary);
+  color: var(--color-segundo);
 }
-.text-mediano {
-  @apply font-inter text-base sm:text-lg md:text-xl font-light my-2 md:my-3;
-  color: var(--color-secondary);
-}
+
+/* PARRAFO */
 .text-parrafo {
-  @apply font-inter text-sm sm:text-base md:text-lg font-light my-2 md:my-3;
-  color: var(--color-text-muted);
+  @apply font-inter text-xl sm:text-xl md:text-base font-normal my-2 md:my-3;
+  color: var(--color-textomedio);
 }
 .text-small {
   @apply font-inter text-xs sm:text-sm font-light my-1;
-  color: var(--color-text-muted);
+  color: var(--color-textomedio);
 }

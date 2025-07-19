@@ -1,6 +1,6 @@
 <template>
   <footer style="background: var(--color-background);">
-    <div class="container mx-auto px-4 py-6 border-t border-theme" style="border-color:var(--color-elborder)">
+    <div class="container mx-auto px-4 py-6 border-t border-theme" style="border-color:var(--color-border)">
       <div class="flex flex-col md:flex-row justify-between items-center gap-6" style="color: var(--color-primary);">
         <p class="text-sm order-3 md:order-1">&copy; 2024 Todos los derechos reservados. Omar Tejada</p>
         <div class="flex space-x-4 items-center order-1 md:order-2">
