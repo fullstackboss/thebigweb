@@ -1,7 +1,7 @@
 <template>
   <header style="background: var(--color-background); position: fixed; top: 0; left: 0; width: 100%; z-index: 50;">
-    <nav class="container mx-auto px-4 py-4 border-b border-theme relative" style="border-color:var(--color-border)">
-      <div class="flex justify-between items-center">
+    <nav class="container mx-auto px-4 py-4 border-b border-theme relative" style="border-color: var(--color-border); height: 64px; min-height: 64px;">
+      <div class="flex justify-between items-center" style="height: 32px;">
         <div class="text-2xl font-bold text-theme-primary" style="color: var(--color-textoresalta);">
           TheBigWeb
         </div>
@@ -47,8 +47,8 @@
       <Transition name="menu-mobile">
         <div 
           v-show="isMenuOpen" 
-          class="md:hidden absolute z-50 border-b border-theme menu-mobile"
-          style="background: var(--color-background); border-color: var(--color-border); top: calc(100% + 1px); left: 0; right: 0; height: 40vh;"
+          class="md:hidden fixed z-50 border-b border-theme menu-mobile"
+          style="background: var(--color-background); border-color: var(--color-border); top: 64px; left: 0; right: 0; height: calc(100vh - 64px);"
         >
           <ul class="flex flex-col items-center justify-center h-full" style="gap: 30px;">
             <MenuItem section="inicio" @click="closeMenu" />
