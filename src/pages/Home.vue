@@ -93,7 +93,7 @@
   </div>
 
   <!--LINEA-->
-  <div class="container border-l border-black lg:ml-[220px] ml-[130px] pl-8 py-10">
+  <div class=" border-l border-black lg:ml-[220px] ml-[130px] py-10">
   </div>
   <!-- SERVICIOS -->
   <div class="container mb-12 mt-4">
