@@ -21,7 +21,7 @@
         </div>
         <div class="order-1 lg:order-2">
           <!-- Animación Rive -->
-          <div class="w-full flex justify-center items-center py-0 lg:py-8 bg-blue-0">
+          <div class="w-full flex justify-center items-center py-0 lg:py-8">
             <canvas ref="riveCanvas" width="400" height="400" class="max-w-full h-auto" style="height: 340px;" ></canvas>
           </div>
         </div>
@@ -33,8 +33,8 @@
   </section>
 
   <!-- SOY OMAR -->
-  <div class="container my-12">
-    <div class="border  rounded-xl flex lg:flex-row md:flex-col flex-col" style="border-color: var(--color-border);">
+  <div class="container mt-12">
+    <div class="border rounded-xl flex lg:flex-row md:flex-col flex-col" style="border-color: var(--color-border);">
       <div class="lg:w-4/12 w-full flex justify-center">
         <div class="relative -top-[40px] lg:-top-[40px] md:-top-[50px] p-5 lg:p-0 rounded-xl">
           <img class="rounded-xl object-contain w-72 xl:w-80 lg:w-64 md:w-80"
@@ -92,8 +92,33 @@
     </div>
   </div>
 
-
-
+  <!--LINEA-->
+  <div class="container border-l border-black lg:ml-[220px] ml-[130px] pl-8 py-10">
+  </div>
+  <!-- SERVICIOS -->
+  <div class="container mb-12 mt-4">
+    <div class="col-span-12">
+    <div class="tit-mediano mb-6">Puedo ayudarte con...</div>
+  </div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-6">
+ <!-- Columnas -->
+ <ServiceCard
+    icon="ri-pencil-ruler-2-fill"
+    title="Diseño UX/UI"
+    description="Lorem ipsum dolor sit amet cotur ele dolores is act ismelaboru lorem ipsum facto meruem is"
+  />
+  <ServiceCard
+    icon="ri-macbook-line"
+    title="Desarrollo Web"
+    description="Desarrollo sitios web modernos, rápidos y responsivos, adaptados a las necesidades de tu negocio."
+  />
+  <ServiceCard
+    icon="ri-film-line"
+    title="Animación y Motion"
+    description="Animaciones y motion graphics para destacar tu marca y captar la atención de tus usuarios."
+  />
+</div>
+  </div>
 
 
 </template>
@@ -104,6 +129,7 @@ import { getCurrentTheme } from '../theme.js'
 import fotoLight from '../assets/fotos/foto-light.jpg'
 import fotoDark from '../assets/fotos/foto-dark.jpg'
 import Button from '../components/Button.vue'
+import ServiceCard from '../components/ServiceCard.vue'
 
 const currentTheme = ref(getCurrentTheme())
 let observer
