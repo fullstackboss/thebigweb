@@ -27,13 +27,18 @@ body {
   color: var(--color-textoresalta);
 }
 /* TIT BLOQUE */
-.tit-mediano {
+.tit-bloque {
   @apply font-poppins text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight;
   color: var(--color-textoresalta);
 }
 /* PRE SECCION */
-.tit-normal {
-  @apply font-poppins text-lg sm:text-xl md:text-2xl lg:text-lg font-light my-2 md:mb-2;
+.tit-pretitulo {
+  @apply font-poppins text-sm sm:text-lg md:text-lg lg:text-lg font-light my-2 md:mb-2;
+  color: var(--color-textomedio);
+}
+/* PRE MENSJAE */
+.tit-mensaje {
+  @apply font-poppins text-xl sm:text-xl md:text-xl lg:text-xl font-light my-2 md:mb-2;
   color: var(--color-textomedio);
 }
 
@@ -51,7 +56,7 @@ body {
 
 /* PARRAFO */
 .text-parrafo {
-  @apply font-inter text-base sm:text-base md:text-base font-normal my-2 md:my-3;
+  @apply font-inter text-base sm:text-base md:text-base font-normal;
   color: var(--color-textomedio);
 }
 .text-small {
