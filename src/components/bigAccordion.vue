@@ -1,18 +1,42 @@
 <template>
   <div>
     <div v-for="(item, idx) in items" :key="idx">
-      <div
-        class="flex items-center cursor-pointer py-4 select-none"
+      <button
+        class="flex items-center w-full cursor-pointer py-4 select-none focus:outline-none focus-visible:ring focus-visible:ring-primary transition"
+        :aria-expanded="openIndex === idx ? 'true' : 'false'"
+        :aria-controls="'accordion-panel-' + idx"
+        :id="'accordion-header-' + idx"
+        role="button"
+        tabindex="0"
         @click="toggle(idx)"
+        @keydown.enter.prevent="toggle(idx)"
+        @keydown.space.prevent="toggle(idx)"
+        type="button"
       >
-        <span class="text-lg font-light w-12 text-right">{{ item.number }}</span>
-        <span class="ml-4 flex-1 text-lg">{{ item.title }}</span>
-        <span class="text-2xl pr-4 transition-transform duration-200">
-          {{ openIndex === idx ? '-' : '+' }}
+        <span class="text-lg font-bold w-12 text-right"
+          :class="openIndex === idx ? 'color: var(--color-textoresalta)' : 'color: var(--color-textoresalta)'"
+        >{{ item.number }}</span>
+        <span 
+          class="ml-4 flex-1 text-lg text-left"
+          :class="openIndex === idx ? 'font-bold' : 'font-semibold'"
+          :style="openIndex === idx ? 'color: var(--color-textoresalta)' : 'color: var(--color-textoresalta)'"
+        >{{ item.title }}</span>
+        <span class="text-2xl pr-4 transition-transform duration-200 flex items-center"
+          :class="openIndex === idx ? 'font-bold text-black' : ''"
+        >
+          <i v-if="openIndex === idx" class="ri-subtract-line"></i>
+          <i v-else class="ri-add-line"></i>
         </span>
-      </div>
-      <transition name="accordion">
-        <div v-if="openIndex === idx" class="pl-16 pr-4 pb-4 text-parrafo text-base">
+      </button>
+      <transition name="accordion-autoheight">
+        <div
+          v-show="openIndex === idx"
+          :id="'accordion-panel-' + idx"
+          class="pl-16 pr-8 pb-6 pt-0 mt-0 text-parrafo overflow-hidden"
+          role="region"
+          :aria-labelledby="'accordion-header-' + idx"
+          ref="el => setPanelRef(idx, el)"
+        >
           {{ item.content }}
         </div>
       </transition>
@@ -22,7 +46,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 
 const items = [
   {
@@ -48,25 +72,36 @@ const items = [
 ]
 
 const openIndex = ref(null)
+const panelRefs = ref([])
+
+function setPanelRef(idx, el) {
+  if (el) panelRefs.value[idx] = el
+}
 
 function toggle(idx) {
   openIndex.value = openIndex.value === idx ? null : idx
+  nextTick(() => {
+    // Si se abre, enfoca el panel para accesibilidad
+    if (openIndex.value === idx && panelRefs.value[idx]) {
+      panelRefs.value[idx].focus && panelRefs.value[idx].focus()
+    }
+  })
 }
 </script>
 
 <style scoped>
-
-.accordion-enter-active, .accordion-leave-active {
+.accordion-autoheight-enter-active,
+.accordion-autoheight-leave-active {
   transition: max-height 0.18s ease, opacity 0.18s ease;
 }
-.accordion-enter-from, .accordion-leave-to {
+.accordion-autoheight-enter-from,
+.accordion-autoheight-leave-to {
   max-height: 0;
   opacity: 0;
-  overflow: hidden;
 }
-.accordion-enter-to, .accordion-leave-from {
-  max-height: 200px;
+.accordion-autoheight-enter-to,
+.accordion-autoheight-leave-from {
+  max-height: 500px;
   opacity: 1;
-  overflow: hidden;
 }
 </style> 
