@@ -44,7 +44,7 @@ body {
 
 /* TIT COMPONENT */
 .tit-compo {
-  @apply font-poppins text-2xl sm:text-2xl md:text-2xl lg:text-2xl font-semibold my-2 md:mb-2;
+  @apply font-poppins text-xl sm:text-xl md:text-xl lg:text-xl font-semibold my-2 md:mb-2;
   color: var(--color-textoresalta);
 }
 
