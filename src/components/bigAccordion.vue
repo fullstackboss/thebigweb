@@ -13,11 +13,11 @@
         @keydown.space.prevent="toggle(idx)"
         type="button"
       >
-        <span class="text-lg font-bold w-12 text-right"
-          :class="openIndex === idx ? 'color: var(--color-textoresalta)' : 'color: var(--color-textoresalta)'"
+        <span class="tit-compo font-bold w-12 text-right"
+          :class="openIndex === idx ? 'text-gray-600' : 'text-gray-600'"
         >{{ item.number }}</span>
         <span 
-          class="ml-4 flex-1 text-lg text-left"
+          class="ml-4 flex-1 tit-compo text-left"
           :class="openIndex === idx ? 'font-bold' : 'font-semibold'"
           :style="openIndex === idx ? 'color: var(--color-textoresalta)' : 'color: var(--color-textoresalta)'"
         >{{ item.title }}</span>

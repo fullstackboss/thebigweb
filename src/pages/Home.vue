@@ -92,15 +92,15 @@
       <!-- 40% (4/12 cols) -->
       <div class="col-span-12 lg:col-span-5 md:col-span-12">
 
-          <div class="tit-bloque mt-2 flex items-center">
-            <div class="inline-block mr-4" style="width: 40px; height: 1px; background: var(--color-primary);"></div>
-            <div>Mi metodología</div>
-          </div>
-          <p class="mt-6 text-parrafo mx-auto lg:mx-0">
-            Rápido y transparente, el camino hacia la creación de un sitio web que represente a su marca de la mejor
-            manera está a solo 4 semanas. Siguiendo la metodología, garantizo la finalización
-            paso a paso de todo el proceso.
-          </p>
+        <div class="tit-bloque mt-2 flex items-center">
+          <div class="inline-block mr-4" style="width: 40px; height: 1px; background: var(--color-primary);"></div>
+          <div>Mi metodología</div>
+        </div>
+        <p class="mt-6 text-parrafo mx-auto lg:mx-0">
+          Rápido y transparente, el camino hacia la creación de un sitio web que represente a su marca de la mejor
+          manera está a solo 4 semanas. Siguiendo la metodología, garantizo la finalización
+          paso a paso de todo el proceso.
+        </p>
 
       </div>
 
@@ -111,15 +111,25 @@
     </div>
   </div>
   <!-- MENSAJE -->
-  <div class="container p-2 bg-purple-400">
+  <div class="container p-2 ">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
       <!-- 60% (8/12 cols) -->
-      <div class="md:col-span-7 bg-green-100 p-4">
-        Contenido 60%
+      <div class="col-span-12 lg:col-span-5 p-4 flex justify-center order-2 lg:order-1 md:order-2">
+        <div class="relative -mt-[0] lg:-mt-[140px]">
+          <img src="../assets/images/demo.jpeg" alt="">
+        </div>
       </div>
       <!-- 40% (4/12 cols) -->
-      <div class="md:col-span-5 bg-blue-100 p-4">
-        Contenido 40%
+      <div class="col-span-12 md:col-span-12 lg:col-span-7 p-4 flex flex-col justify-center order-1 lg:order-2 md:order-1">
+        <div class="tit-bloque mt-2 flex items-center">
+          <div class="inline-block mr-4" style="width: 160px; height: 1px; background: var(--color-primary);"></div>
+          <div>Hablemos de algún proyecto, colaboración o idea que puedas tener y resolverlo.
+            <p class="mt-6 text-parrafo mx-auto lg:mx-0">
+          Rápido y transparente, el camino hacia la creación de un sitio web que represente a su marca.
+        </p>
+          </div>
+        </div>
+        
       </div>
     </div>
   </div>
