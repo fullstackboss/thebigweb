@@ -1,70 +1,110 @@
 <template>
-  <div class="py-8" style="background: var(--color-background);">
-    <h1 style="color: var(--color-primary); font-size: 2.25rem; font-weight: bold; margin-bottom: 2rem;">Trabajos</h1>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-      <div 
-        v-for="project in projects" 
-        :key="project.id"
-        style="background: var(--color-card); padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 2px 8px var(--color-shadow); border: 1px solid var(--color-border); transition: box-shadow 0.2s;"
+  <div class="container py-8">
+    <!-- Tabs -->
+    <div class="flex flex-col md:flex-row gap-2 mb-8 relative">
+      <button
+        v-for="(tab, idx) in tabs"
+        :key="tab.label"
+        @click="activeTab = idx"
+        :class="[
+          'flex-1 px-6 py-6 rounded-xl border border-black font-inter text-lg transition relative',
+          activeTab === idx ? 'bg-black text-white' : 'bg-white text-black'
+        ]"
       >
-        <div style="width: 100%; height: 12rem; background: var(--color-surface); border-radius: 0.5rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
-          <span style="color: var(--color-text-muted); font-size: 1.125rem;">{{ project.name }}</span>
-        </div>
-        <h3 style="color: var(--color-primary); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">{{ project.name }}</h3>
-        <p style="color: var(--color-secondary); margin-bottom: 1rem;">{{ project.description }}</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <span 
-            v-for="tech in project.technologies" 
-            :key="tech"
-            style="padding: 0.25rem 0.75rem; background: var(--color-surface); color: var(--color-secondary); font-size: 0.875rem; border-radius: 9999px;"
-          >
-            {{ tech }}
-          </span>
-        </div>
-      </div>
+        {{ tab.label }}
+        <span v-if="activeTab === idx" class="hidden md:block absolute left-1/2 -translate-x-1/2 -bottom-[51px] h-[50px] w-px bg-black"></span>
+      </button>
     </div>
+    <!-- Contenido dinámico -->
+    <TabContent
+      v-for="item in tabs[activeTab].items"
+      :key="item.title"
+      :img="item.img"
+      :title="item.title"
+      :description="item.description"
+      :url="item.url"
+      :position_title="item.position_title"
+      :position_description="item.position_description"
+      :position_image="item.position_image"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import TabContent from '../components/TabContent.vue'
 
-const projects = ref([
+const tabs = [
   {
-    id: 1,
-    name: 'E-commerce Platform',
-    description: 'Plataforma completa de comercio electrónico con carrito de compras y sistema de pagos.',
-    technologies: ['Vue 3', 'Node.js', 'MongoDB']
+    label: 'Proyectos UX/UI',
+    items: [
+      {
+        img: new URL('../assets/proyectos/proyecto-ux-1.jpg', import.meta.url).href,
+        title: 'Titulo acerca del is proyecto UX 1',
+        description: 'Iba ayudando a empresas emergentes lo web, Lorem ipsum factouern is poree monoloretr Lorem ipsum is Perect.',
+        url: '#',
+        position_image: 'order-1',
+        position_title: 'order-2',
+        position_description: 'order-3',
+      },
+      {
+        img: new URL('../assets/proyectos/proyecto-ux-2.jpg', import.meta.url).href,
+        title: 'Titulo acerca del is proyecto UX 2',
+        description: 'Ayudando a Lorem common emergentes lo web impecable, Lorem ipsum factouern is poree monoloretr Lorem ipolutis.',
+        url: '#',
+        position_image: 'order-1',
+        position_title: 'order-2',
+        position_description: 'order-3',
+      }
+    ]
   },
   {
-    id: 2,
-    name: 'Dashboard Analytics',
-    description: 'Panel de control con gráficos interactivos y análisis de datos en tiempo real.',
-    technologies: ['Vue 3', 'Chart.js', 'Firebase']
+    label: 'Proyectos Motion Graphics',
+    items: [
+      {
+        img: new URL('../assets/proyectos/proyecto-motion-1.jpg', import.meta.url).href,
+        title: 'Titulo acerca del is proyecto Motion 1',
+        description: 'Estoy ayudando a empresas lo web impecable, Lorem ipsum factouern is poree monoloretr Lorem ipsum is facto absolutis.',
+        url: '#',
+        position_image: 'order-2',
+        position_title: 'order-1',
+        position_description: 'order-3',
+      },
+      {
+        img: new URL('../assets/proyectos/proyecto-motion-2.jpg', import.meta.url).href,
+        title: 'Titulo acerca del is proyecto Motion 2',
+        description: 'Deseo ayudando a empresas emergentes lo web impecable, Lorem ipsum factouern is poree monoloretr Lorem ipsum is facto .',
+        url: '#',
+        position_image: 'order-2',
+        position_title: 'order-1',
+        position_description: 'order-3',
+      }
+    ]
   },
   {
-    id: 3,
-    name: 'Social Media App',
-    description: 'Aplicación de redes sociales con chat en tiempo real y compartir contenido.',
-    technologies: ['Vue 3', 'Socket.io', 'PostgreSQL']
-  },
-  {
-    id: 4,
-    name: 'E-commerce Platform',
-    description: 'Plataforma completa de comercio electrónico con carrito de compras y sistema de pagos.',
-    technologies: ['Vue 3', 'Node.js', 'MongoDB']
-  },
-  {
-    id: 5,
-    name: 'Dashboard Analytics',
-    description: 'Panel de control con gráficos interactivos y análisis de datos en tiempo real.',
-    technologies: ['Vue 3', 'Chart.js', 'Firebase']
-  },
-  {
-    id: 6,
-    name: 'Social Media App',
-    description: 'Aplicación de redes sociales con chat en tiempo real y compartir contenido.',
-    technologies: ['Vue 3', 'Socket.io', 'PostgreSQL']
+    label: 'Desarrollo Frontend',
+    items: [
+      {
+        img: new URL('../assets/proyectos/proyecto-desarrollo-1.jpg', import.meta.url).href,
+        title: 'Titulo acerca del is proyecto Desarrollo 1',
+        description: 'Estoy ayudando a empresas emergentes lo web impecam factouern is poree monoloretr Lorem ipsum is facto Peerctus is cooomsn.',
+        url: '#',
+        position_image: 'order-3',
+        position_title: 'order-1',
+        position_description: 'order-2',
+      },
+      {
+        img: new URL('../assets/proyectos/proyecto-desarrollo-2.jpg', import.meta.url).href,
+        title: 'Titulo acerca del is proyecto Desarrollo 2',
+        description: 'Vamos a ayudando a empresas emergentes lo, Lorem ipsum factouern is poree Iper abosluutis comin Lorem ipsum is facto.',
+        url: '#',
+        position_image: 'order-3',
+        position_title: 'order-1',
+        position_description: 'order-2',
+      }
+    ]
   }
-])
+]
+
+const activeTab = ref(0)
 </script> 
