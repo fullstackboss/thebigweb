@@ -84,7 +84,7 @@ const buttonClasses = computed(() => {
   }
   
   return [
-    'inline-flex items-center justify-center px-8 py-3 text-lg font-normal transition-all duration-200 focus:outline-none',
+    'inline-flex items-center justify-center px-8 py-2 text-base font-normal transition-all duration-200 focus:outline-none',
     roundedClasses[props.rounded] || 'rounded-full'
   ].join(' ')
 })
