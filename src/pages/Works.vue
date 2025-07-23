@@ -1,4 +1,34 @@
 <template>
+    <!-- INICIO -->
+    <div class="container pt-4">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+      <!-- Columna de texto (7/12) - Segunda en móvil -->
+      <div class="col-span-12 lg:col-span-7 p-4 order-2 lg:order-1 md:order-2">
+        <div class="flex items-center justify-left lg:justify-start mb-2">
+          <span class="inline-block mr-4" style="width: 40px; height: 1px; background: var(--color-primary);"></span>
+          <p class="tit-pretitulo m-0">
+            Últimos trabajos realizados
+          </p>
+        </div>
+        <h1 class="tit-grande mt-2">
+          Proyectos
+        </h1>
+        <p class="mt-6 text-parrafo mx-auto lg:mx-0">
+          Rápido y transparente, el camino hacia la creación de un sitio web que represente a su marca de la mejor
+          manera está a solo 4 semanas de distancia. Siguiendo la meso de todo el proceso. Rápido y transparente, el
+          camino hacia la creación de un sitio web que represente a su marca de la mejor manera está a solo 4 semanas de
+          distancia. Siguiendo la meso de todo el proceso.
+        </p>
+
+      </div>
+      <!-- Columna del canvas (5/12) - Primera en móvil -->
+      <div class="col-span-12 lg:col-span-5 p-4 flex items-center justify-center order-1 lg:order-2 md:order-1">
+        <img src="../assets/images/soft-demo.jpg" alt="" class="h-96 w-full object-cover rounded-2xl">
+      </div>
+
+
+    </div>
+  </div>
   <div class="container py-8">
     <!-- Tabs -->
     <div class="flex flex-col md:flex-row gap-2 mb-8 relative">
@@ -66,7 +96,7 @@ const tabs = [
         title: 'Titulo acerca del is proyecto MotionGrafics 1',
         description: 'Estoy ayudando a empresas lo web impecable, Lorem ipsum factouern is poree monoloretr Lorem ipsum is facto absolutis.',
         url: '#',
-        position_image: 'order-2',
+        position_image: 'lg:order-2 order-1',
         position_title: 'order-1',
         position_description: 'order-3',
       },
@@ -75,7 +105,7 @@ const tabs = [
         title: 'Titulo acerca del is proyecto MotionGrafics 2',
         description: 'Deseo ayudando a empresas emergentes lo web impecable, Lorem ipsum factouern is poree monoloretr Lorem ipsum is facto .',
         url: '#',
-        position_image: 'order-2',
+        position_image: 'lg:order-2 order-1',
         position_title: 'order-1',
         position_description: 'order-3',
       }
@@ -89,7 +119,7 @@ const tabs = [
         title: 'Titulo acerca del is proyecto Desarrollo 1',
         description: 'Estoy ayudando a empresas emergentes lo web impecam factouern is poree monoloretr Lorem ipsum is facto Peerctus is cooomsn.',
         url: '#',
-        position_image: 'order-3',
+        position_image: 'lg:order-3 order-1',
         position_title: 'order-1',
         position_description: 'order-2',
       },
@@ -98,7 +128,7 @@ const tabs = [
         title: 'Titulo acerca del is proyecto Desarrollo 2',
         description: 'Vamos a ayudando a empresas emergentes lo, Lorem ipsum factouern is poree Iper abosluutis comin Lorem ipsum is facto.',
         url: '#',
-        position_image: 'order-3',
+        position_image: 'lg:order-3 order-1',
         position_title: 'order-1',
         position_description: 'order-2',
       }
