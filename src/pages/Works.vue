@@ -63,7 +63,7 @@ const tabs = [
     items: [
       {
         img: new URL('../assets/proyectos/proyecto-motion-1.jpg', import.meta.url).href,
-        title: 'Titulo acerca del is proyecto Motion 1',
+        title: 'Titulo acerca del is proyecto MotionGrafics 1',
         description: 'Estoy ayudando a empresas lo web impecable, Lorem ipsum factouern is poree monoloretr Lorem ipsum is facto absolutis.',
         url: '#',
         position_image: 'order-2',
@@ -72,7 +72,7 @@ const tabs = [
       },
       {
         img: new URL('../assets/proyectos/proyecto-motion-2.jpg', import.meta.url).href,
-        title: 'Titulo acerca del is proyecto Motion 2',
+        title: 'Titulo acerca del is proyecto MotionGrafics 2',
         description: 'Deseo ayudando a empresas emergentes lo web impecable, Lorem ipsum factouern is poree monoloretr Lorem ipsum is facto .',
         url: '#',
         position_image: 'order-2',
