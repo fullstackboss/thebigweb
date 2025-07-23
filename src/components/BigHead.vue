@@ -6,7 +6,7 @@
           TheBigWeb
         </div>
         <!-- Botón hamburguesa para tablet y móvil -->
-        <div class="md:hidden flex items-center space-x-2">
+        <div class="md:hidden flex items-center space-x-2 ">
           <button 
             @click="toggleTheme"
             class="p-2 rounded-full transition hover:bg-theme-hover"
@@ -27,7 +27,7 @@
         </div>
         <!-- Menú desktop (visible en md y superior) -->
         <div class="hidden md:flex items-center space-x-2">
-          <ul class="flex gap-2">
+          <ul class="flex gap-2 pr-6">
             <MenuItem section="inicio" />
             <MenuItem section="acerca" />
             <MenuItem section="trabajos" />
@@ -41,6 +41,13 @@
             <SunIcon v-if="currentTheme === 'light'" class="w-5 h-5" />
             <MoonIcon v-else class="w-5 h-5" />
           </button>
+          <input
+            type="checkbox"
+            class="relative inline-block h-6 w-10 appearance-none rounded-full cursor-pointer before:absolute before:left-0 before:top-0 before:inline-block before:h-full before:w-full before:rounded-full before:bg-slate-200 before:transition-colors before:duration-200 before:ease-in after:absolute after:left-0.5 after:top-2/4 after:h-5 after:w-5 after:-translate-y-2/4 after:rounded-full after:bg-white after:transition-transform after:duration-200 after:ease-in checked:before:bg-slate-800 checked:after:translate-x-[calc(100%-4px)] dark:after:bg-white"
+            :checked="currentTheme === 'dark'"
+            @change="toggleTheme"
+            aria-label="Cambiar modo oscuro"
+          />
         </div>
       </div>
       <!-- Menú móvil/tablet desplegable -->
