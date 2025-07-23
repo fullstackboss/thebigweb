@@ -27,7 +27,7 @@
         </div>
         <!-- Menú desktop (visible en md y superior) -->
         <div class="hidden md:flex items-center space-x-2">
-          <ul class="flex gap-3">
+          <ul class="flex gap-2">
             <MenuItem section="inicio" />
             <MenuItem section="acerca" />
             <MenuItem section="trabajos" />

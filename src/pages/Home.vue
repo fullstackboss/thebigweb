@@ -106,7 +106,7 @@
 
       <!-- 60% (8/12 cols) -->
       <div class="col-span-12 lg:col-span-7 md:col-span-12">
-        <bigAccordion />
+        <bigAccordion :items="items" />
       </div>
     </div>
   </div>
@@ -150,6 +150,29 @@ const riveCanvas = ref(null)
 let riveInstance = null
 let riveScript = null
 let isDarkInput = null
+
+const items = [
+  {
+    number: '01.',
+    title: '01. Descubrimiento y Briefing',
+    content: 'Primero converso contigo para entender bien tu idea, tus objetivos y lo que quieres lograr. Me interesa conocer tu marca, a quién te diriges y qué estilo buscas. Esta etapa me ayuda a tener una visión clara y alineada contigo desde el inicio.'
+  },
+  {
+    number: '02.',
+    title: '02. Estrategia y Diseño UX/UI',
+    content: 'Con esa información, empiezo a organizar todo: defino la estructura, los flujos y empiezo a diseñar la experiencia del usuario. Luego paso a la parte visual, donde creo la interfaz cuidando cada detalle para que sea clara, funcional y atractiva. Te voy mostrando avances para que vayamos ajustando juntos.'
+  },
+  {
+    number: '03.',
+    title: '03. Producción y Desarrollo',
+    content: 'Cuando el diseño está aprobado, paso a construirlo. Desarrollo el sitio o producto asegurándome de que funcione bien, cargue rápido y se vea perfecto en todos los dispositivos. Si el proyecto lo necesita, también agrego animaciones y efectos para mejorar la experiencia.'
+  },
+  {
+    number: '04.',
+    title: '04. Lanzamiento y Acompañamiento',
+    content: 'Con todo listo, publico tu proyecto en el entorno final. Te ayudo en lo que necesites para el lanzamiento y, si hace falta, te doy soporte o te explico cómo manejarlo. También puedo seguir acompañándote con mantenimiento o mejoras a futuro.'
+  }
+]
 
 onMounted(async () => {
   observer = new MutationObserver(() => {
