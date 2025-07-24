@@ -1,90 +1,100 @@
 <template>
-  <div class="py-8" style="background: var(--color-background);">
-    <h1 style="color: var(--color-primary); font-size: 2.25rem; font-weight: bold; margin-bottom: 2rem;">Contacto</h1>
-    <div style="background: var(--color-card); padding: 2rem; border-radius: 0.5rem; box-shadow: 0 2px 8px var(--color-shadow); border: 1px solid var(--color-border); max-width: 32rem; margin: 0 auto;">
-      <form @submit.prevent="submitForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
-        <div>
-          <label for="name" style="color: var(--color-primary); font-weight: 600; margin-bottom: 0.5rem; display: block;">Nombre</label>
-          <input 
-            type="text" 
-            id="name" 
-            v-model="form.name"
-            style="width: 100%; padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-surface); color: var(--color-primary); outline: none;"
-            required
-          >
+  <!-- INICIO -->
+  <div class="container pt-4">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+      <!-- Columna de texto (7/12) - Segunda en móvil -->
+      <div class="col-span-12 lg:col-span-7 p-4">
+        <div class="flex items-center justify-left lg:justify-start mb-2">
+          <span class="inline-block mr-4" style="width: 40px; height: 1px; background: var(--color-primary);"></span>
+          <div class="tit-pretitulo m-0">
+            Consultame por tus dudas
+          </div>
         </div>
-        <div>
-          <label for="email" style="color: var(--color-primary); font-weight: 600; margin-bottom: 0.5rem; display: block;">Email</label>
-          <input 
-            type="email" 
-            id="email" 
-            v-model="form.email"
-            style="width: 100%; padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-surface); color: var(--color-primary); outline: none;"
-            required
-          >
+        <div class="tit-grande">
+          Contactame
         </div>
-        <div>
-          <label for="subject" style="color: var(--color-primary); font-weight: 600; margin-bottom: 0.5rem; display: block;">Asunto</label>
-          <input 
-            type="text" 
-            id="subject" 
-            v-model="form.subject"
-            style="width: 100%; padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-surface); color: var(--color-primary); outline: none;"
-            required
-          >
+        <div class="my-0 tit-mensaje mx-auto lg:mx-0">
+          Rápido y transparente, el camino hacia la creación de un sitio.
         </div>
-        <div>
-          <label for="message" style="color: var(--color-primary); font-weight: 600; margin-bottom: 0.5rem; display: block;">Mensaje</label>
-          <textarea 
-            id="message" 
-            v-model="form.message"
-            rows="5"
-            style="width: 100%; padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-surface); color: var(--color-primary); outline: none; resize: none;"
-            required
-          ></textarea>
-        </div>
-        <button 
-          type="submit"
-          style="width: 100%; background: var(--color-primary); color: var(--color-card); font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.5rem; transition: background 0.2s; border: none;"
-          @mouseover="event.target.style.background = 'var(--color-secondary)'"
-          @mouseleave="event.target.style.background = 'var(--color-primary)'"
-        >
-          Enviar Mensaje
-        </button>
-      </form>
-      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
-        <h3 style="color: var(--color-primary); font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Información de Contacto</h3>
-        <div style="color: var(--color-secondary);">
-          <p>📧 Email: contacto@thebigweb.com</p>
-          <p>📱 Teléfono: +1 (555) 123-4567</p>
-          <p>📍 Dirección: Calle Principal 123, Ciudad</p>
+        <div class="mt-6 mb-6 md:mb-0 flex flex-col sm:flex-row justify-between gap-4">
+          <!--  <div class="flex flex-col justify-center md:w-auto">
+            <Button text="Contáctame" url="#" backgroundColor="var(--color-antineutro)"
+              backgroundColorHover="var(--color-mediooscuro)" textColor="var(--color-neutro)"
+              textColorHover="var(--color-claro)" rounded="full" minWidth="fit-content" icon="arrow-up-circle" />
+          </div> -->
+          <div class="flex flex-col sm:flex-row justify-center gap-4 md:w-auto">
+            <Button text="Facebook" url="#" backgroundColor="var(--color-background)"
+              backgroundColorHover="var(--color-oscuro)" textColor="var(--color-antineutro)" textColorHover="white"
+              rounded="full" border="1px solid var(--color-mediooscuro)" minWidth="fit-content"
+              icon="ArrowUpRightIcon" />
+            <Button text="LinkedIn" url="#" backgroundColor="var(--color-background)"
+              backgroundColorHover="var(--color-oscuro)" textColor="var(--color-antineutro)" textColorHover="white"
+              rounded="full" border="1px solid var(--color-mediooscuro)" minWidth="fit-content"
+              icon="ArrowUpRightIcon" />
+          </div>
         </div>
       </div>
+
     </div>
   </div>
+
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+    <div class="col-span-12 lg:col-span-6">
+      <!-- PRIMER FORMULARIO -->
+      <div class="relative flex flex-col rounded-xl bg-transparent">
+        <form class="mt-8 mb-2 w-full p-4">
+          <div class="mb-1 flex flex-col gap-6">
+            <div class="w-full">
+              <label class="block mb-2 text-sm text-slate-600">
+                Nombre
+              </label>
+              <input type="text"
+                class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-full px-5 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                placeholder="Nombre" />
+            </div>
+            <div class="w-full">
+              <label class="block mb-2 text-sm text-slate-600">
+                Email
+              </label>
+              <input type="email"
+                class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-full px-5 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                placeholder="Email" />
+            </div>
+            <div class="w-full">
+              <label class="block mb-2 text-sm text-slate-600">
+                Teléfono
+              </label>
+              <input type="text"
+                class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-full px-5 py-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                placeholder="Teléfono" />
+            </div>
+            <div class="w-full ">
+              <label class="block mb-2 text-sm text-slate-600">
+                ¿Cómo puedo ayudarte?
+              </label>
+              <textarea rows="4"
+                class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-xl px-5 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                placeholder="¿Cómo puedo ayudarte?"></textarea>
+            </div>
+          </div>
+          <button
+            class="mt-4 rounded-full bg-slate-800 py-4 px-8 border border-transparent text-center text-base text-white transition-all  focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 disabled:pointer-events-none disabled:opacity-50  w-full md:w-[50%] mx-auto"
+            type="button">
+            Enviar Mensaje
+          </button>
+        </form>
+      </div>
+
+    </div>
+    <div class="col-span-12 lg:col-span-6 flex justify-center">
+      <img src="../assets/images/contact-demo.jpg" alt="" class="w-2/3">
+    </div>
+  </div>
+
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import Button from '../components/Button.vue'
 
-const form = ref({
-  name: '',
-  email: '',
-  subject: '',
-  message: ''
-})
-
-const submitForm = () => {
-  // Aquí iría la lógica para enviar el formulario
-  console.log('Formulario enviado:', form.value)
-  alert('¡Mensaje enviado con éxito!')
-  
-  // Limpiar formulario
-  form.value = {
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  }
-}
-</script> 
+</script>
