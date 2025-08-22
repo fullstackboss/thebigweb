@@ -7,11 +7,11 @@
         <div class="flex items-center justify-left lg:justify-start mb-2">
           <span class="inline-block mr-4" style="width: 40px; height: 1px; background: var(--color-primary);"></span>
           <div class="tit-pretitulo m-0">
-            Consultame por tus dudas
+            Consultame por tus dudas x
           </div>
         </div>
         <div class="tit-grande">
-          Contactame
+          Contactame z
         </div>
         <div class="my-0 tit-mensaje mx-auto lg:mx-0">
           Rápido y transparente, el camino hacia la creación de un sitio.
