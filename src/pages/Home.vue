@@ -4,11 +4,11 @@
   <div class="container pt-4">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
       <!-- Columna del canvas (5/12) - Primera en móvil -->
-      <div class="col-span-12 order-1 lg:order-2 md:order-1 lg:col-span-5 p-4 flex items-center justify-center ">
-        <canvas ref="riveCanvas" width="400" height="400" class="max-w-full h-auto" style="height: 380px;"></canvas>
+      <div class="col-span-12 order-1 lg:order-2 md:order-1 lg:col-span-6 p-4 flex items-center justify-center mt-8">
+        <canvas ref="riveCanvas" width="600" height="380" class="max-w-full h-auto" style=""></canvas>
       </div>
       <!-- Columna de texto (7/12) - Segunda en móvil -->
-      <div class="col-span-12 order-2 lg:order-1 md:order-2 lg:col-span-7 p-4">
+      <div class="col-span-12 order-2 lg:order-1 md:order-2 lg:col-span-6 p-4">
         <div class="flex items-center justify-left lg:justify-start mb-2">
           <span class="inline-block mr-4" style="width: 40px; height: 1px; background: var(--color-primary);"></span>
           <p class="tit-pretitulo m-0">
@@ -202,7 +202,7 @@ function crearRive() {
     console.error('Rive CDN no cargado')
     return
   }
-  const srcUrl = new URL('../assets/animaciones/prueba.riv', import.meta.url).href
+  const srcUrl = new URL('../assets/animaciones/bigboss.riv', import.meta.url).href
   riveInstance = new window.rive.Rive({
     src: srcUrl,
     canvas: riveCanvas.value,
