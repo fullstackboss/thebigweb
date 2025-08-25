@@ -10,14 +10,14 @@ export default {
         poppins: ['Poppins', 'system-ui', 'sans-serif'],
         inter: ['Inter', 'system-ui', 'sans-serif'],
       },
-      // Puedes personalizar los breakpoints aquí:
-      // screens: {
+       // Puedes personalizar los breakpoints aquí:
+       screens: {
       //   'sm': '640px',
       //   'md': '768px',
       //   'lg': '1024px',
-      //   'xl': '1280px',
-      //   '2xl': '1536px',
-      // }
+         'xl': '1280px',
+         '2xl': '1280px',
+       }
     },
   },
   plugins: [],

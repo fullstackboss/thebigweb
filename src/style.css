@@ -63,3 +63,131 @@ body {
   @apply font-inter text-xs sm:text-sm font-light my-1;
   color: var(--color-textomedio);
 }
+
+/* Estilos para el contenido del modal (prose) */
+.prose {
+  color: var(--color-textomedio);
+}
+
+.prose h3 {
+  color: var(--color-textoresalta);
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.prose h4 {
+  color: var(--color-textoresalta);
+  margin-bottom: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.prose ul {
+  margin-bottom: 1rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.prose strong {
+  color: var(--color-textoresalta);
+}
+
+/* Estilos para la página de detalle del trabajo */
+.prose-detail {
+  color: var(--color-textomedio);
+}
+
+.prose-detail h3 {
+  color: var(--color-textoresalta);
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.prose-detail h4 {
+  color: var(--color-textoresalta);
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.prose-detail p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-size: 1.125rem;
+}
+
+.prose-detail ul {
+  margin-bottom: 1.5rem;
+}
+
+.prose-detail li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  font-size: 1.125rem;
+}
+
+.prose-detail strong {
+  color: var(--color-textoresalta);
+}
+
+.prose-detail section {
+  margin-bottom: 3rem;
+}
+
+.prose-detail section:last-child {
+  margin-bottom: 0;
+}
+
+/* Estilos para las tarjetas de métricas */
+.metric-card {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card.green {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(134, 239, 172, 0.1) 100%);
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.metric-card.blue {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.metric-card.orange {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(251, 146, 60, 0.1) 100%);
+  border-color: rgba(249, 115, 22, 0.2);
+}
+
+.metric-card.purple {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1) 0%, rgba(196, 181, 253, 0.1) 100%);
+  border-color: rgba(147, 51, 234, 0.2);
+}
+
+.metric-card.red {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(252, 165, 165, 0.1) 100%);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.metric-card.indigo {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(165, 180, 252, 0.1) 100%);
+  border-color: rgba(99, 102, 241, 0.2);
+}

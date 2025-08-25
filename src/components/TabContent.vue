@@ -12,22 +12,37 @@
     <!-- Acción -->
     <div :class="['w-full md:w-1/3 flex flex-col items-start justify-start', position_description]">
       <p class="text-parrafo mb-4">{{ description }}</p>
-      <a :href="url" target="_blank" class="inline-flex items-center border border-black rounded-full px-6 py-2 text-lg font-inter font-normal transition hover:bg-black hover:text-white group">
+      <button 
+        @click="openWorkDetail"
+        class="inline-flex items-center border border-black rounded-full px-6 py-2 text-lg font-inter font-normal transition hover:bg-black hover:text-white group"
+      >
         Ver más
         <svg class="ml-2 w-5 h-5 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps({
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const props = defineProps({
   img: String,
   title: String,
   description: String,
   url: String,
   position_title: String,
   position_description: String,
-  position_image: String
+  position_image: String,
+  content_work: String,
+  projectId: String
 })
+
+const openWorkDetail = () => {
+  // Generar un ID único basado en el título si no se proporciona
+  const id = props.projectId || props.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+  router.push(`/work/${id}`)
+}
 </script> 
