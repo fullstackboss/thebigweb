@@ -17,18 +17,9 @@
         </div>
 
         <!-- Header del trabajo -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          <!-- Imagen del proyecto -->
-          <div class="order-2 lg:order-1">
-            <img 
-              :src="workDetail?.img" 
-              :alt="workDetail?.title"
-              class="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-lg"
-            />
-          </div>
-          
+        <div class="mb-12">
           <!-- Información del proyecto -->
-          <div class="order-1 lg:order-2">
+          <div class="max-w-4xl">
             <div class="flex items-center mb-4">
               <span class="inline-block mr-4" style="width: 40px; height: 1px; background: var(--color-primary);"></span>
               <p class="tit-pretitulo m-0">Proyecto</p>
@@ -54,44 +45,15 @@
         </div>
 
         <!-- Contenido detallado del trabajo -->
-        <div class="max-w-4xl mx-auto">
+        <div class="w-full">
           <div v-if="workDetail?.content_work" v-html="workDetail.content_work" class="prose-detail max-w-none"></div>
           <div v-else class="text-center py-16 text-gray-500">
             <p class="text-xl">Contenido detallado no disponible</p>
           </div>
         </div>
-
-        <!-- Navegación entre proyectos -->
-        <div class="mt-16 pt-8 border-t border-gray-200">
-          <div class="flex justify-between items-center">
-            <button 
-              v-if="previousWork"
-              @click="goToWork(previousWork)"
-              class="inline-flex items-center text-parrafo hover:text-black transition-colors group"
-            >
-              <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-              </svg>
-              Proyecto Anterior
-            </button>
-            <div v-else></div>
-            
-            <button 
-              v-if="nextWork"
-              @click="goToWork(nextWork)"
-              class="inline-flex items-center text-parrafo hover:text-black transition-colors group"
-            >
-              Siguiente Proyecto
-              <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </button>
-            <div v-else></div>
-          </div>
-        </div>
       </div>
     </main>
-    <BigFoot />
+
   </div>
 </template>
 
@@ -586,11 +548,27 @@ const nextWork = computed(() => {
 })
 
 const goBack = () => {
-  console.log('Navegando a /trabajos')
-  console.log('Rutas disponibles:', router.getRoutes().map(r => r.path))
+  console.log('Navegando de vuelta a trabajos')
+  
+  // Obtener el índice de la categoría desde los query parameters
+  const tabIndex = route.query.tab ? parseInt(route.query.tab) : 0
+  const fromPage = route.query.from
+  
+  console.log('Tab index:', tabIndex, 'From page:', fromPage)
   
   try {
-    router.replace('/trabajos')
+    if (fromPage === 'works' && !isNaN(tabIndex)) {
+      // Navegar de vuelta a trabajos con la categoría específica
+      console.log(`Navegando a /trabajos?tab=${tabIndex}`)
+      router.replace({
+        path: '/trabajos',
+        query: { tab: tabIndex }
+      })
+    } else {
+      // Fallback: ir a trabajos sin categoría específica
+      console.log('Navegando a /trabajos (sin categoría específica)')
+      router.replace('/trabajos')
+    }
   } catch (error) {
     console.error('Error al navegar:', error)
     // Fallback: intentar con push

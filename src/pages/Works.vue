@@ -35,6 +35,7 @@
       <button
         v-for="(tab, idx) in tabs"
         :key="tab.label"
+        :data-tab="idx"
         @click="activeTab = idx"
         :class="[
           'flex-1 px-6 py-6 rounded-xl border border-black font-inter text-lg transition relative',
@@ -58,13 +59,54 @@
       :position_image="item.position_image"
       :content_work="item.content_work"
       :projectId="item.id"
+      :activeTabIndex="activeTab"
     />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import TabContent from '../components/TabContent.vue'
+
+const route = useRoute()
+const activeTab = ref(0)
+
+// Función para establecer la categoría activa basada en la URL
+const setActiveTabFromURL = () => {
+  const tabParam = route.query.tab
+  if (tabParam !== undefined) {
+    const tabIndex = parseInt(tabParam)
+    if (tabIndex >= 0 && tabIndex < tabs.length) {
+      activeTab.value = tabIndex
+    }
+  }
+}
+
+// Establecer la categoría activa cuando se monta el componente
+onMounted(() => {
+  setActiveTabFromURL()
+})
+
+// Watcher para cuando cambie la URL
+watch(() => route.query.tab, (newTab) => {
+  if (newTab !== undefined) {
+    const tabIndex = parseInt(newTab)
+    if (tabIndex >= 0 && tabIndex < tabs.length) {
+      activeTab.value = tabIndex
+      // Scroll suave a la categoría activa
+      setTimeout(() => {
+        const activeTabElement = document.querySelector(`[data-tab="${tabIndex}"]`)
+        if (activeTabElement) {
+          activeTabElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          })
+        }
+      }, 100)
+    }
+  }
+})
 
 const tabs = [
   {
@@ -239,6 +281,4 @@ const tabs = [
     ]
   }
 ]
-
-const activeTab = ref(0)
 </script> 

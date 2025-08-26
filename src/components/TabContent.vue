@@ -37,12 +37,21 @@ const props = defineProps({
   position_description: String,
   position_image: String,
   content_work: String,
-  projectId: String
+  projectId: String,
+  activeTabIndex: Number
 })
 
 const openWorkDetail = () => {
   // Generar un ID único basado en el título si no se proporciona
   const id = props.projectId || props.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
-  router.push(`/work/${id}`)
+  
+  // Navegar al detalle con el índice de la categoría activa
+  router.push({
+    path: `/work/${id}`,
+    query: { 
+      tab: props.activeTabIndex,
+      from: 'works'
+    }
+  })
 }
 </script> 
