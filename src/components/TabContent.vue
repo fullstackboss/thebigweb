@@ -6,12 +6,11 @@
     </div>
     <!-- Título y descripción -->
     <div :class="['w-full md:w-1/3 flex flex-col justify-center', position_title]">
-      <h2 class="font-poppins text-2xl font-bold mb-2">{{ title }}</h2>
-      
+      <h2 class="font-poppins text-2xl font-bold mb-2" v-html="title"></h2>
     </div>
     <!-- Acción -->
     <div :class="['w-full md:w-1/3 flex flex-col items-start justify-start', position_description]">
-      <p class="text-parrafo mb-4">{{ description }}</p>
+      <div class="text-parrafo mb-4" v-html="description"></div>
       <button 
         @click="openWorkDetail"
         class="inline-flex items-center border border-black rounded-full px-6 py-2 text-lg font-inter font-normal transition hover:bg-black hover:text-white group"
@@ -37,13 +36,18 @@ const props = defineProps({
   position_description: String,
   position_image: String,
   content_work: String,
-  projectId: String,
+  projectId: [String, Number],
   activeTabIndex: Number
 })
 
 const openWorkDetail = () => {
-  // Generar un ID único basado en el título si no se proporciona
-  const id = props.projectId || props.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+  // Usar el ID del proyecto de WordPress
+  const id = props.projectId
+  
+  if (!id) {
+    console.error('No project ID provided')
+    return
+  }
   
   // Navegar al detalle con el índice de la categoría activa
   router.push({
