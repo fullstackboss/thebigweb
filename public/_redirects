@@ -1,4 +1,1 @@
-# Proxy para la API de WordPress (evita problemas de CORS)
-/api/wordpress/* https://omartejada.com/contenido/wp-json/wp/v2/:splat 200
-
-# Reglas existentes (si las hay) 
+/*    /index.html   200 

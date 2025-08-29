@@ -1,11 +1,7 @@
 // Configuración de WordPress
 export const WORDPRESS_CONFIG = {
   // URL base de la API
-  // Usar variable de entorno o fallback
-  API_BASE_URL: import.meta.env.VITE_WORDPRESS_API_URL || 
-    (import.meta.env.DEV 
-      ? 'https://omartejada.com/contenido/wp-json/wp/v2'
-      : '/api/wordpress'),
+  API_BASE_URL: 'https://omartejada.com/contenido/wp-json/wp/v2',
   
   // Endpoints
   ENDPOINTS: {
