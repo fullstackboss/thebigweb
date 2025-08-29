@@ -1,12 +1,4 @@
-# Redirecciones para SPA
-/*    /index.html   200
+# Proxy para la API de WordPress (evita problemas de CORS)
+/api/wordpress/* https://omartejada.com/contenido/wp-json/wp/v2/:splat 200
 
-# Headers para CORS y APIs externas
-/api/*  https://omartejada.com/contenido/wp-json/wp/v2/:splat  200
-/wp-json/*  https://omartejada.com/contenido/wp-json/:splat  200
-
-# Headers para peticiones a WordPress
-/wp-json/*
-  Access-Control-Allow-Origin: *
-  Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
-  Access-Control-Allow-Headers: Content-Type, Authorization 
+# Reglas existentes (si las hay) 
