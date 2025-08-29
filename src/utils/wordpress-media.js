@@ -1,4 +1,6 @@
 // Utilidades para manejar medios de WordPress
+import { fetchWithRetry } from '../config/wordpress.js'
+
 export const WORDPRESS_MEDIA_CONFIG = {
   API_BASE_URL: 'https://omartejada.com/contenido/wp-json/wp/v2',
   MEDIA_ENDPOINT: '/media'
@@ -17,7 +19,7 @@ export const getFeaturedImageUrl = async (post) => {
   if (post.featured_media && post.featured_media !== 0) {
     try {
       const mediaUrl = `${WORDPRESS_MEDIA_CONFIG.API_BASE_URL}${WORDPRESS_MEDIA_CONFIG.MEDIA_ENDPOINT}/${post.featured_media}`
-      const response = await fetch(mediaUrl)
+      const response = await fetchWithRetry(mediaUrl)
       
       if (response.ok) {
         const mediaData = await response.json()
@@ -36,11 +38,20 @@ export const getFeaturedImageUrls = async (posts) => {
   const postsWithImages = []
   
   for (const post of posts) {
-    const imageUrl = await getFeaturedImageUrl(post)
-    postsWithImages.push({
-      ...post,
-      featured_media_url: imageUrl
-    })
+    try {
+      const imageUrl = await getFeaturedImageUrl(post)
+      postsWithImages.push({
+        ...post,
+        featured_media_url: imageUrl
+      })
+    } catch (error) {
+      console.error(`Error procesando imagen para post ${post.id}:`, error)
+      // Agregar el post sin imagen en caso de error
+      postsWithImages.push({
+        ...post,
+        featured_media_url: null
+      })
+    }
   }
   
   return postsWithImages

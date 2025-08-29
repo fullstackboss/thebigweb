@@ -1,7 +1,9 @@
 // Configuración de WordPress
+import { API_CONFIG, fetchWithEnvironmentConfig } from './environment.js'
+
 export const WORDPRESS_CONFIG = {
-  // URL base de la API
-  API_BASE_URL: 'https://omartejada.com/contenido/wp-json/wp/v2',
+  // URL base de la API - ahora desde environment.js
+  API_BASE_URL: API_CONFIG.WORDPRESS_BASE_URL,
   
   // Endpoints
   ENDPOINTS: {
@@ -15,6 +17,9 @@ export const WORDPRESS_CONFIG = {
     PER_PAGE: 100,
     EMBED: '_embed'
   },
+  
+  // Configuración de red para producción
+  NETWORK_CONFIG: API_CONFIG.NETWORK,
   
   // Mapeo de categorías por nombre (slug) - más flexible que por ID
   CATEGORIES: {
@@ -145,4 +150,62 @@ export const getPostCategorySlug = (post) => {
   
   console.warn('Post sin categorías:', post.id, post.title?.rendered)
   return null
+} 
+
+// Función para hacer peticiones HTTP con reintentos y timeout
+export const fetchWithRetry = async (url, options = {}, retries = WORDPRESS_CONFIG.NETWORK_CONFIG.RETRIES) => {
+  try {
+    return await fetchWithEnvironmentConfig(url, options)
+  } catch (error) {
+    if (retries > 0) {
+      console.log(`Reintentando... (${retries} intentos restantes)`)
+      await new Promise(resolve => setTimeout(resolve, WORDPRESS_CONFIG.NETWORK_CONFIG.RETRY_DELAY))
+      return fetchWithRetry(url, options, retries - 1)
+    }
+    throw error
+  }
+}
+
+// Función para hacer peticiones con fallback a función serverless
+export const fetchWithFallback = async (endpoint, params = {}) => {
+  const directUrl = getApiUrl(endpoint, params)
+  
+  try {
+    // Intentar petición directa primero
+    console.log('🌐 Intentando petición directa a WordPress...')
+    const response = await fetchWithRetry(directUrl)
+    return response
+  } catch (error) {
+    console.warn('❌ Petición directa falló, intentando con función serverless...')
+    
+    // Si falla, intentar con función serverless
+    try {
+      const serverlessUrl = `/.netlify/functions/wordpress-proxy${endpoint}`
+      const queryString = Object.entries(params)
+        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+        .join('&')
+      
+      const fullServerlessUrl = queryString ? `${serverlessUrl}?${queryString}` : serverlessUrl
+      
+      const response = await fetch(fullServerlessUrl, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      
+      console.log('✅ Petición exitosa usando función serverless')
+      return response
+    } catch (serverlessError) {
+      console.error('❌ Ambas peticiones fallaron:', {
+        direct: error.message,
+        serverless: serverlessError.message
+      })
+      throw error // Lanzar el error original
+    }
+  }
 } 

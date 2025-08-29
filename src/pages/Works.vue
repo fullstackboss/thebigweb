@@ -43,6 +43,11 @@
           <button @click="fetchPosts" class="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors">
             Reintentar
           </button>
+          
+          <!-- Componente de prueba para diagnóstico -->
+          <div class="mt-8">
+            <WordPressTest />
+          </div>
         </div>
 
         <!-- Content when loaded -->
@@ -123,13 +128,16 @@ import { useRoute } from 'vue-router'
 import BigHead from '../components/BigHead.vue'
 import BigFoot from '../components/BigFoot.vue'
 import TabContent from '../components/TabContent.vue'
+import WordPressTest from '../components/WordPressTest.vue'
 import { 
   getApiUrl, 
   getCategoryName, 
   getCategoryLabel, 
   getFeaturedMediaUrl,
   getPostCategorySlug,
-  WORDPRESS_CONFIG 
+  WORDPRESS_CONFIG,
+  fetchWithRetry,
+  fetchWithFallback
 } from '../config/wordpress.js'
 import { debugWordPressSetup } from '../config/wordpress-debug.js'
 import { getFeaturedImageUrls, getMediaDebugInfo } from '../utils/wordpress-media.js'
@@ -182,15 +190,16 @@ const fetchPosts = async () => {
   error.value = null
   
   try {
+    console.log('🚀 Iniciando carga de posts desde WordPress...')
+    
     // Obtener posts con información de imágenes destacadas y términos de categorías
     const apiUrl = getApiUrl(WORDPRESS_CONFIG.ENDPOINTS.POSTS, { _embed: '_embed' })
-    const response = await fetch(apiUrl)
+    console.log('📡 URL de la API:', apiUrl)
     
-    if (!response.ok) {
-      throw new Error('Error al obtener los posts')
-    }
-    
+    const response = await fetchWithFallback(WORDPRESS_CONFIG.ENDPOINTS.POSTS, { _embed: '_embed' })
     const data = await response.json()
+    
+    console.log(`✅ Posts obtenidos exitosamente: ${data.length} posts`)
     
     // Procesar posts para extraer URLs de imágenes destacadas y categorías
     console.log('🔄 Procesando posts para obtener imágenes destacadas...')
@@ -226,8 +235,24 @@ const fetchPosts = async () => {
     })
     
   } catch (err) {
-    console.error('Error fetching posts:', err)
-    error.value = 'Error al cargar los proyectos. Por favor, intenta de nuevo.'
+    console.error('❌ Error fetching posts:', err)
+    
+    // Proporcionar información más detallada del error
+    let errorMessage = 'Error al cargar los proyectos. '
+    
+    if (err.name === 'AbortError') {
+      errorMessage += 'La conexión tardó demasiado tiempo. Verifica tu conexión a internet.'
+    } else if (err.message.includes('HTTP error! status: 404')) {
+      errorMessage += 'La API de WordPress no está disponible. Verifica la configuración.'
+    } else if (err.message.includes('HTTP error! status: 403')) {
+      errorMessage += 'Acceso denegado a la API de WordPress.'
+    } else if (err.message.includes('Failed to fetch')) {
+      errorMessage += 'No se pudo conectar con el servidor. Verifica tu conexión a internet.'
+    } else {
+      errorMessage += `Detalles: ${err.message}`
+    }
+    
+    error.value = errorMessage
     loading.value = false
   }
 }
