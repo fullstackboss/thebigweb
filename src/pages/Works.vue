@@ -48,7 +48,7 @@
         <!-- Content when loaded -->
         <div v-else>
           <!-- Debug info (temporal) -->
-          <div class="mb-4 p-4 bg-gray-100 rounded-lg hidden">
+          <div class="mb-4 p-4 bg-gray-100 rounded-lg hiddenx">
             <h3 class="font-bold mb-2">Debug Info:</h3>
             <p><strong>Total posts:</strong> {{ posts.length }}</p>
             <p><strong>Categorías encontradas:</strong> {{ [...new Set(posts.map(p => p.category_slug).filter(Boolean))].join(', ') || 'Ninguna' }}</p>
