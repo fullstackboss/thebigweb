@@ -14,7 +14,7 @@
               </p>
             </div>
             <h1 class="tit-grande mt-2">
-              Proyectos
+              Proyectos 2025
             </h1>
             <p class="mt-6 text-parrafo mx-auto lg:mx-0">
               Rápido y transparente, el camino hacia la creación de un sitio web que represente a su marca de la mejor
